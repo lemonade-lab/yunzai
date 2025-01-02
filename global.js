@@ -39,17 +39,4 @@ global.Bot = {
     get: (val) => "",
   },
 };
-
 global.Bot["self_id"] = global.Bot;
-
-/**
- * *********
- * yunzai
- * *********
- */
-import plugin from "../../lib/plugins/plugin.js";
-import runtime from "../../lib/plugins/runtime.js";
-import Renderer from "../../lib/renderer/Renderer.js";
-global.runtime = runtime;
-global.plugin = plugin;
-global.Renderer = Renderer;

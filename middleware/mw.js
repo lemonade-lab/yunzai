@@ -1,6 +1,5 @@
 import { useSend, OnMiddleware, Text, Image } from "alemonjs";
-import { Loader } from "#yunzai";
-import "./global.js";
+import Loader from "../../lib/plugins/loader.js";
 /**
  * @param event
  */

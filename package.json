@@ -1,5 +1,7 @@
 {
   "name": "a-yunzai",
+  "version": "1.0.0",
+  "description": "alemonjs yunzai",
   "main": "main.js",
   "type": "module",
   "dependencies": {
