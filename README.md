@@ -38,12 +38,10 @@ qq-bot:
 ```
 
 ```yaml
-gui:
-  port: 17127
-
 qq-bot:
   # 如果你做了webhook服务器，可以连接服务器上的机器人
   ws: "wss://xxxx.com/ws"
+  # ... more， 其他信息也得填上哦。
 ```
 
 启动
