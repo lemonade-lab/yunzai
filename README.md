@@ -2,6 +2,10 @@
 
 脚本 A 是在 yunzai 的基础上启动 alemonjs 机器人的脚本
 
+更多内容请阅读 [https://alemonjs.com](https://alemonjs.com)
+
+当前仅处理公共消息和私信，其他类型的消息都将忽略。。。
+
 ## 使用方法
 
 Miao-Yunzai 目录下安装
@@ -61,18 +65,25 @@ node src/main.js --login qq-bot
 
 ### 配置 webhook
 
-使用 nginx 代理
-
 > QQ 平台配置 https://[domain name]/webhook
+
+> 记得勾选想要接收的事件！！！
+
+> 记得勾选想要接收的事件！！！
+
+> 记得勾选想要接收的事件！！！
+
+使用 nginx 代理
 
 ```conf
  server {
         listen       443 ssl http2;
         server_name  bundle.com;
+        # 记得申请域名
         ssl_certificate /usr/local/nginx/bundle.crt;
         ssl_certificate_key /usr/local/nginx/bundle.key;
         location /webhook {
-          # 指向 webhook 服务的端口
+          # 指向本地 webhook 服务
           proxy_pass http://localhost:17157;
           proxy_set_header Host $host;
           proxy_set_header X-Real-IP $remote_addr;
@@ -91,7 +102,7 @@ node src/main.js --login qq-bot
 ```conf
  server {
         location /websocket {
-           # 指向 WebSocket 服务的端口
+          # 指向本地 websocket 服务
            proxy_pass http://localhost:17157;
            proxy_http_version 1.1;
            proxy_set_header Upgrade $http_upgrade;
@@ -133,8 +144,6 @@ gui:
 ```sh
 node src/main.js --login gui
 ```
-
-更多内容请阅读 [https://alemonjs.com](https://alemonjs.com)
 
 ### 内网穿透
 

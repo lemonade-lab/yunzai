@@ -5,16 +5,26 @@ import Loader from "../../lib/plugins/loader.js";
  */
 const Yunzai = (event) => {
   const Send = useSend(event);
+  let text = event.MessageText;
+  // 去掉gui 的 # 扩展 <> 标签
+  if (event.Platform == "gui") {
+    text = event.MessageText.replace(/(<|>)/g, "");
+  } else if (event.Platform == "qq") {
+    // 如果启动的是icqq，使用传入原生消息
+    const e = event.value;
+    Loader.deal(e);
+    return;
+  }
   const e = {
     user_id: event.UserId,
     message: [
       {
         type: "text",
-        text: event.MessageText.replace(/(<|>)/g, ""),
+        text: text,
       },
     ],
     reply: (content, _) => {
-      console.log(content);
+      // console.log(content);
       if (Array.isArray(content)) {
         const image = content.filter((item) => item.type == "image");
         if (image.length > 0) {
