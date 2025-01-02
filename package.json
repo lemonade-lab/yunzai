@@ -1,0 +1,10 @@
+{
+  "name": "a-yunzai",
+  "main": "main.js",
+  "type": "module",
+  "dependencies": {
+    "@alemonjs/gui": "^0.2.5",
+    "@alemonjs/qq-bot": "^0.0.5",
+    "alemonjs": "^2.0.0-rc.81"
+  }
+}
