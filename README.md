@@ -5,10 +5,11 @@
 miao-yunzai 目录下安装
 
 ```sh
-git clone git@github.com:lemonade-lab/yunzai.git ./src
+git clone --depth=1 https://github.com/lemonade-lab/yunzai.git ./src
 ```
 
 修改配置 config/default_config/bot.yaml
+或 config/config/bot.yaml
 
 ```yaml
 # 是否跳过登录ICQQ
@@ -50,3 +51,17 @@ qq-bot:
 ```sh
 node src/main.js --login qq-bot
 ```
+
+如果你想本地测试，
+
+可以打开 vscode 安装插件
+
+[alemonjs gui](https://marketplace.visualstudio.com/items?itemName=lemonade-x.alemonjs-gui)
+
+启动 gui
+
+```sh
+node src/main.js --login gui
+```
+
+更多内容请阅读 [https://alemonjs.com](https://alemonjs.com)
