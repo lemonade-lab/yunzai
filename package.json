@@ -3,10 +3,15 @@
   "version": "1.0.0",
   "description": "alemonjs yunzai",
   "main": "main.js",
+  "private": true,
   "type": "module",
-  "dependencies": {
+  "scripts": {
+    "prepare": "husky"
+  },
+  "devDependencies": {
     "@alemonjs/gui": "^0.2.5",
     "@alemonjs/qq-bot": "^0.0.5",
-    "alemonjs": "^2.0.0-rc.81"
+    "alemonjs": "^2.0.0-rc.81",
+    "husky": "^9.0.11"
   }
 }
