@@ -19,6 +19,12 @@ git clone --depth=1 https://github.com/lemonade-lab/yunzai.git ./src
 skip_login: true
 ```
 
+推进使用 yarn
+
+```sh
+npm install  yarn@1.19.1 -g --registry=https://registry.npmmirror.com
+```
+
 安装机器人
 
 ```sh
@@ -39,12 +45,18 @@ qq-bot:
 
 ```yaml
 qq-bot:
+  # 默认
+  route: "/webhook"
+  # 默认
+  port: 17157
   # 如果你做了webhook服务器，可以连接服务器上的机器人
   ws: "wss://xxxx.com/ws"
   # ... more， 其他信息也得填上哦。
 ```
 
 启动
+
+> QQ 平台配置 https://[domain name]/webhook
 
 ```sh
 node src/main.js --login qq-bot
@@ -72,3 +84,15 @@ node src/main.js --login gui
 ```
 
 更多内容请阅读 [https://alemonjs.com](https://alemonjs.com)
+
+## 穿透
+
+[https://dashboard.ngrok.com](https://dashboard.ngrok.com)
+
+```sh
+ngrok http 17157 --host-header="localhost:17157 "  --url=[你的免费地址]
+```
+
+测试访问
+
+[你的免费地址]/webhook
