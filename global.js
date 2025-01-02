@@ -38,5 +38,8 @@ global.Bot = {
   fl: {
     get: (val) => "",
   },
+  gl: {
+    get: (val) => "",
+  },
 };
 global.Bot["self_id"] = global.Bot;

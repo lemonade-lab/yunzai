@@ -122,6 +122,30 @@ qq-bot:
   ws: "wss://[domain name]/websocket"
 ```
 
+### 后台运行
+
+`alemon.config.yaml`
+
+```yaml
+pm2:
+  apps:
+    - name: "qq-bot"
+      script: "node src/main.js --login qq-bot"
+      env:
+        NODE_ENV: "production"
+```
+
+```sh
+# start
+npx pm2 startOrRestart src/pm2.config.cjs
+# stop
+npx pm2 stop src/pm2.config.cjs
+# delete
+npx pm2 delete src/pm2.config.cjs
+# kill
+npx pm2 kill
+```
+
 ### 沙盒测试
 
 如果你想本地测试，
