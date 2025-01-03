@@ -53,6 +53,10 @@ qq-bot:
   route: "/webhook"
   # 默认(可不填)
   port: 17157
+  # log 会显示每条消息的[Date][ChannleId][UserKey]...
+  # 判断是否是为主人
+  master_key:
+    - ""
 ```
 
 启动机器人
