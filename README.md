@@ -2,38 +2,58 @@
 
 脚本 A 是在 yunzai 的基础上启动 alemonjs 机器人的脚本
 
-更多内容请阅读 [https://alemonjs.com](https://alemonjs.com)
+该启动脚本不需要改 Miao 崽任何内容源码即可使用！
+
+> 是不是碉堡了？
 
 当前仅处理公共消息和私信，其他类型的消息都将忽略。。。
 
+插件库 [Yunzai-Bot-plugins-index](https://github.com/yhArcadia/Yunzai-Bot-plugins-index)
+
+Miao 崽 [Miao-Yunzai](https://github.com/yoimiya-kokomi/Miao-Yunzai)
+
+开发文档 [alemonjs.com](https://alemonjs.com)
+
 ## 使用方法
 
-Miao-Yunzai 目录下安装
+环境：Chrome/Chromium/Edge && Nodejs && Redis
+
+- Miao 崽
 
 ```sh
-git clone --depth=1 https://github.com/lemonade-lab/yunzai.git ./src
-```
-
-修改配置 `config/default_config/bot.yaml`
-
-或 `config/config/bot.yaml`
-
-```yaml
-# 是否跳过登录ICQQ
-skip_login: true
+git clone --depth=1 https://github.com/yoimiya-kokomi/Miao-Yunzai.git
+cd Miao-Yunzai
+git clone --depth=1 https://github.com/yoimiya-kokomi/miao-plugin.git ./plugins/miao-plugin/
 ```
 
 推荐使用 yarn
 
 ```sh
 npm install  yarn@1.19.1 -g --registry=https://registry.npmmirror.com
+yarn install
+```
+
+- 脚本 A
+
+```sh
+git clone --depth=1 https://github.com/lemonade-lab/yunzai.git ./src
 ```
 
 安装机器人
 
 ```sh
-yarn add alemonjs @alemonjs/qq-bot -D
+yarn add alemonjs @alemonjs/gui  -D
 ```
+
+启动 gui
+
+```sh
+node src/main.js --login gui
+```
+
+## @alemonjs/qq-bot
+
+> 如果你想登录 wechat、kook、dc、tg 等可自行阅读文档
 
 创建配置 `alemon.config.yaml`
 
@@ -46,6 +66,8 @@ qq-bot:
   # 密钥
   secret: ""
 ```
+
+补充配置(可忽略)
 
 ```yaml
 qq-bot:
@@ -127,9 +149,27 @@ qq-bot:
   ws: "wss://[domain name]/websocket"
 ```
 
-### 后台运行
+### 内网穿透
 
-`alemon.config.yaml`
+[dashboard.ngrok.com](https://dashboard.ngrok.com)
+
+```sh
+ngrok http 17157 --host-header="localhost:17157"  --url=[你的免费地址]
+```
+
+测试访问
+
+[你的免费地址]/webhook
+
+## 沙盒测试
+
+安装 vscode 安装插件
+
+[alemonjs gui](https://marketplace.visualstudio.com/items?itemName=lemonade-x.alemonjs-gui)
+
+## 后台运行
+
+补充配置 `alemon.config.yaml`
 
 ```yaml
 pm2:
@@ -150,38 +190,3 @@ npx pm2 delete src/pm2.config.cjs
 # kill
 npx pm2 kill
 ```
-
-### 沙盒测试
-
-如果你想本地测试，
-
-```sh
-yarn add @alemonjs/gui -D
-```
-
-```yaml
-gui:
-  port: 17127
-```
-
-安装 vscode 安装插件
-
-[alemonjs gui](https://marketplace.visualstudio.com/items?itemName=lemonade-x.alemonjs-gui)
-
-启动 gui
-
-```sh
-node src/main.js --login gui
-```
-
-### 内网穿透
-
-[https://dashboard.ngrok.com](https://dashboard.ngrok.com)
-
-```sh
-ngrok http 17157 --host-header="localhost:17157"  --url=[你的免费地址]
-```
-
-测试访问
-
-[你的免费地址]/webhook

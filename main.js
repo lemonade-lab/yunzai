@@ -1,3 +1,4 @@
+import "./updateYaml.js";
 import { start } from "alemonjs";
 import { dirname } from "path";
 import { join } from "path";
