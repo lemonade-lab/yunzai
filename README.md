@@ -39,21 +39,19 @@ yarn install
 git clone --depth=1 https://github.com/lemonade-lab/yunzai.git ./src
 ```
 
-安装机器人
+- alemonjs
 
 ```sh
-yarn add alemonjs @alemonjs/gui  -D
-```
-
-启动 gui
-
-```sh
-node src/main.js --login gui
+yarn add alemonjs -D
 ```
 
 ## @alemonjs/qq-bot
 
 > 如果你想登录 wechat、kook、dc、tg 等可自行阅读文档
+
+```sh
+yarn add @alemonjs/qq-bot -D
+```
 
 创建配置 `alemon.config.yaml`
 
@@ -161,12 +159,6 @@ ngrok http 17157 --host-header="localhost:17157"  --url=[你的免费地址]
 
 [你的免费地址]/webhook
 
-## 沙盒测试
-
-安装 vscode 安装插件
-
-[alemonjs gui](https://marketplace.visualstudio.com/items?itemName=lemonade-x.alemonjs-gui)
-
 ## 后台运行
 
 补充配置 `alemon.config.yaml`
@@ -190,3 +182,21 @@ npx pm2 delete src/pm2.config.cjs
 # kill
 npx pm2 kill
 ```
+
+## 沙盒测试
+
+安装机器人
+
+```sh
+yarn add  @alemonjs/gui  -D
+```
+
+启动 gui
+
+```sh
+node src/main.js --login gui
+```
+
+安装 vscode 安装插件
+
+[alemonjs gui](https://marketplace.visualstudio.com/items?itemName=lemonade-x.alemonjs-gui)
