@@ -55,6 +55,7 @@ qq-bot:
   port: 17157
   # log 会显示每条消息的[Date][ChannleId][UserKey]...
   # 判断是否是为主人
+  # 不是id哦，key是由alemonjs生产的
   master_key:
     - ""
 ```

@@ -41,9 +41,14 @@ const Yunzai = (event) => {
   } else if (config && config?.master_id && Array.isArray(config.master_id)) {
     keys = config.master_id;
   }
+  let isMaster = false;
+  if (keys) {
+    if (keys.includes(event.UserId)) isMaster = true;
+    if (keys.includes(event.UserKey)) isMaster = true;
+  }
   const e = {
     user_id: event.UserId,
-    isMaster: keys ? keys.includes(event.UserId) : false,
+    isMaster: isMaster,
     message: [
       {
         type: "text",
