@@ -22,7 +22,35 @@ global.BotConfig = {}
 global.Bot = {
   uin: 'self_id',
   logger: global.logger,
-  makeForwardMsg: val => '',
+  /**
+   * 消息转发
+   * @param {} val
+   * @returns
+   */
+  makeForwardMsg: val => {
+    /**
+     * {
+     *   user_id:'',
+     *   nickname:'',
+     *   message:''
+     * }[]
+     */
+    if (Array.isArray(val)) {
+      return val.map(v => v.message)
+    } else if (typeof val === 'string') {
+      return val
+    }
+    return ''
+  },
+  /**
+   * 得到icqq的好友列表
+   */
+  getFriendList: () => {
+    return []
+  },
+  getGroupList: () => {
+    return []
+  },
   pickUser: uid => {
     return {
       sendMsg: val => ''
