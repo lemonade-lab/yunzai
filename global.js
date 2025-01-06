@@ -1,4 +1,5 @@
 import { mkdirSync } from 'fs'
+import { getConfig } from 'alemonjs'
 /**
  * ********
  * 必要目录
@@ -28,19 +29,27 @@ global.Bot = {
    * @returns
    */
   makeForwardMsg: val => {
-    /**
-     * {
-     *   user_id:'',
-     *   nickname:'',
-     *   message:''
-     * }[]
-     */
-    if (Array.isArray(val)) {
-      return val.map(v => v.message)
-    } else if (typeof val === 'string') {
-      return val
+    const getText = val => {
+      if (Array.isArray(val)) {
+        const str = val.map(v => v.message)
+        return str.join('\n')
+      } else if (typeof val === 'string') {
+        return val
+      }
+      return ''
     }
-    return ''
+    const text = getText(val)
+    // console.log('text', text)
+    if (/(http|https)/.test(text)) {
+      // const config = getConfig()
+      // console.log('config', config)
+      // if (config.argv.login == 'qq-bot') {
+      //   const reg = /http[s]?:\/\/[a-zA-Z0-9\.\?&=\/]+/g
+      //   console.log('text', text)
+      //   return text.replace(reg, '[内容已被平台隐藏.请在查看控制台]')
+      // }
+    }
+    return text
   },
   /**
    * 得到icqq的好友列表
@@ -55,6 +64,9 @@ global.Bot = {
     return {
       sendMsg: val => ''
     }
+  },
+  pickGroup: gid => {
+    return null
   },
   nickname: '',
   getGroupMemberInfo: (val1, val2) => {
