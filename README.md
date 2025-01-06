@@ -58,11 +58,11 @@ yarn add @alemonjs/qq-bot -D
 ```yaml
 qq-bot:
   # 编号
-  app_id: ""
+  app_id: ''
   # 令牌
-  token: ""
+  token: ''
   # 密钥
-  secret: ""
+  secret: ''
 ```
 
 补充配置(可忽略)
@@ -70,14 +70,14 @@ qq-bot:
 ```yaml
 qq-bot:
   # 默认(可不填)
-  route: "/webhook"
+  route: '/webhook'
   # 默认(可不填)
   port: 17157
   # log 会显示每条消息的[Date][ChannleId][UserKey]...
   # 判断是否是为主人
   # 不是id哦，key是由alemonjs生产的
   master_key:
-    - ""
+    - ''
 ```
 
 启动机器人
@@ -144,7 +144,7 @@ node src/main.js --login qq-bot
 qq-bot:
   # ... more， 其他信息也得填上哦。
   # 如果你做了webhook服务器，可以连接服务器上的ws服务。
-  ws: "wss://[domain name]/websocket"
+  ws: 'wss://[domain name]/websocket'
 ```
 
 ### 内网穿透
@@ -166,10 +166,10 @@ ngrok http 17157 --host-header="localhost:17157"  --url=[你的免费地址]
 ```yaml
 pm2:
   apps:
-    - name: "qq-bot"
-      script: "node src/main.js --login qq-bot"
+    - name: 'qq-bot'
+      script: 'node src/main.js --login qq-bot'
       env:
-        NODE_ENV: "production"
+        NODE_ENV: 'production'
 ```
 
 ```sh

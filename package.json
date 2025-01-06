@@ -6,9 +6,12 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "format": "prettier --write .",
+    "check-format": "git diff --exit-code",
     "prepare": "husky"
   },
   "devDependencies": {
+    "prettier": "^3.3.3",
     "@alemonjs/gui": "^0.2.5",
     "@alemonjs/qq-bot": "^0.0.5",
     "alemonjs": "^2.0.0-rc.81",

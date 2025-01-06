@@ -1,45 +1,45 @@
-import { mkdirSync } from "fs";
+import { mkdirSync } from 'fs'
 /**
  * ********
  * 必要目录
  * ********
  */
-mkdirSync("./temp/html", { recursive: true });
-mkdirSync("./resources", { recursive: true });
-mkdirSync("./data", { recursive: true });
+mkdirSync('./temp/html', { recursive: true })
+mkdirSync('./resources', { recursive: true })
+mkdirSync('./data', { recursive: true })
 /**
  * *********
  * 必要存储
  * *********
  */
-global.NoteCookie = {};
-global.BotConfig = {};
+global.NoteCookie = {}
+global.BotConfig = {}
 /**
  * *******
  * icqq
  * *******
  */
 global.Bot = {
-  uin: "self_id",
+  uin: 'self_id',
   logger: global.logger,
-  makeForwardMsg: (val) => "",
-  pickUser: (uid) => {
+  makeForwardMsg: val => '',
+  pickUser: uid => {
     return {
-      sendMsg: (val) => "",
-    };
+      sendMsg: val => ''
+    }
   },
-  nickname: "",
+  nickname: '',
   getGroupMemberInfo: (val1, val2) => {
     return {
-      card: "",
-      nickname: "",
-    };
+      card: '',
+      nickname: ''
+    }
   },
   fl: {
-    get: (val) => "",
+    get: val => ''
   },
   gl: {
-    get: (val) => "",
-  },
-};
-global.Bot["self_id"] = global.Bot;
+    get: val => ''
+  }
+}
+global.Bot['self_id'] = global.Bot
