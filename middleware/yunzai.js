@@ -1,10 +1,24 @@
 import { useSend, Text, Image, getConfigValue, Mention } from 'alemonjs'
 import Loader from '../../lib/plugins/loader.js'
 import { streamToBuffer } from './util.js'
+
+import { useMention } from 'alemonjs'
+// import { segment } from 'icqq'
+// segment.at(123456789)
+
+const useMentionsUsers = async event => {
+  const Mentions = await useMention(event)
+  if (!Mentions || Mentions.length === 0) {
+    return // @ 提及为空
+  }
+  // 查找用户类型的 @ 提及，且不是 bot
+  return Mentions.filter(item => !item.IsBot)
+}
+
 /**
  * @param event
  */
-export const Yunzai = event => {
+export const Yunzai = async event => {
   const Send = useSend(event)
   let text = event.MessageText
 
@@ -33,15 +47,30 @@ export const Yunzai = event => {
     return
   }
 
+  const users = await useMentionsUsers(event)
+
+  const message = [
+    {
+      type: 'text',
+      text: text
+    }
+  ]
+
+  if (users && users.length > 0) {
+    users.forEach(item =>
+      message.push({
+        type: 'at',
+        id: item.UserId,
+        qq: item.UserId
+      })
+    )
+  }
+
   const e = {
     user_id: event.UserId,
     isMaster: isMaster,
-    message: [
-      {
-        type: 'text',
-        text: text
-      }
-    ],
+    message: message,
+    post_type: 'message',
     reply: (content, _) => {
       const isImage = content => {
         if (typeof content.file == 'string') {
@@ -96,11 +125,11 @@ export const Yunzai = event => {
       return Promise.resolve(val)
     }
   }
-  e['post_type'] = 'message'
   if (event.name == 'message.create') {
     e['message_type'] = 'group'
     e['sub_type'] = 'group'
     e['group_id'] = event.ChannelId
+    e['group_name'] = ''
   } else {
     e['message_type'] = 'private'
     e['sub_type'] = 'friend'
