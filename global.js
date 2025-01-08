@@ -1,13 +1,4 @@
-import { mkdirSync } from 'fs'
-import { getConfig } from 'alemonjs'
-/**
- * ********
- * 必要目录
- * ********
- */
-mkdirSync('./temp/html', { recursive: true })
-mkdirSync('./resources', { recursive: true })
-mkdirSync('./data', { recursive: true })
+// import { getConfig } from 'alemonjs'
 /**
  * *********
  * 必要存储
@@ -39,35 +30,30 @@ global.Bot = {
       return ''
     }
     const text = getText(val)
-    // console.log('text', text)
-    if (/(http|https)/.test(text)) {
-      // const config = getConfig()
-      // console.log('config', config)
-      // if (config.argv.login == 'qq-bot') {
-      //   const reg = /http[s]?:\/\/[a-zA-Z0-9\.\?&=\/]+/g
-      //   console.log('text', text)
-      //   return text.replace(reg, '[内容已被平台隐藏.请在查看控制台]')
-      // }
-    }
+    // if (/http:\/\/[a-zA-Z0-9\.\-]+/.test(text)) {
+    //   const config = getConfig()
+    //   if (config.argv.login == 'qq-bot') {
+    //     const reg = /http:\/\/[a-zA-Z0-9\.\-]+/g
+    //     const urls = text.match(reg)
+    //     urls.forEach(url => {
+    //       console.log('[被隐藏的内容]', url)
+    //     })
+    //     return text.replace(reg, '[隐藏内容(控制台)]')
+    //   }
+    // }
     return text
   },
   /**
    * 得到icqq的好友列表
    */
-  getFriendList: () => {
-    return []
-  },
-  getGroupList: () => {
-    return []
-  },
+  getFriendList: () => [],
+  getGroupList: () => [],
   pickUser: uid => {
     return {
       sendMsg: val => ''
     }
   },
-  pickGroup: gid => {
-    return null
-  },
+  pickGroup: gid => null,
   nickname: '',
   getGroupMemberInfo: (val1, val2) => {
     return {
@@ -75,11 +61,19 @@ global.Bot = {
       nickname: ''
     }
   },
-  fl: {
-    get: val => ''
-  },
-  gl: {
-    get: val => ''
-  }
+  /** 好友列表 */
+  fl: new Map(),
+  /** 陌生人列表 */
+  sl: new Map(),
+  /** 群列表 */
+  gl: new Map(),
+  /** 群员列表缓存 */
+  gml: new Map(),
+  /** 我加入的频道列表 */
+  guilds: new Map(),
+  /** 黑名单列表 */
+  blacklist: new Set(),
+  /** 好友分组 */
+  classes: new Map()
 }
 global.Bot['self_id'] = global.Bot
