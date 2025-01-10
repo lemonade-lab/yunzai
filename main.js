@@ -1,4 +1,4 @@
-import './updateYaml.js'
+import './icqq/updateYaml.js'
 import { start } from 'alemonjs'
 import { dirname } from 'path'
 import { join } from 'path'
