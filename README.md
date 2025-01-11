@@ -66,6 +66,7 @@ node src/main.js
 ## 后台运行
 
 > 运行后会生成 `alemon.config.yaml` 并启动 gui
+
 > 如果已经自定义配置 `alemon.config.yaml`但未补充pm2请参考
 
 ```yaml
