@@ -14,7 +14,7 @@
     "prettier": "^3.3.3",
     "@alemonjs/gui": "^0.3.0",
     "@alemonjs/qq-bot": "^0.0.6",
-    "alemonjs": "^2.0.0-rc.84",
+    "alemonjs": "^2.0.0-rc.85",
     "husky": "^9.0.11"
   }
 }
