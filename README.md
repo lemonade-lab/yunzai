@@ -47,12 +47,12 @@ yarn add alemonjs @alemonjs/gui -D
 
 ## 启动
 
-> 默认--login gui 即登录沙盒环境
+> 默认 --login gui 即登录沙盒环境
 
 > 登录其他平台请了解 https://alemonjs.com/docs/environment
 
 ```sh
-yarn dev
+node src/main.js
 ```
 
 ## 沙盒测试
