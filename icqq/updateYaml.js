@@ -27,17 +27,3 @@ if (fs.existsSync(dir)) {
 if (fs.existsSync(dir)) {
   update()
 }
-
-//
-const alemonConfigDir = join(process.cwd(), 'alemon.config.yaml')
-
-if (!fs.existsSync(alemonConfigDir)) {
-  // 不存在 alemon.config.yaml 文件
-  const data = `pm2:
-  apps:
-    - name: 'gui'
-      script: 'node src/main.js'
-      env:
-        NODE_ENV: 'production'`
-  fs.writeFileSync(alemonConfigDir, data)
-}

@@ -65,7 +65,17 @@ node src/main.js
 
 ## 后台运行
 
-> 默认 gui，运行其他平台请编辑`alemon.config.yaml`
+> 运行后会生成 `alemon.config.yaml` 并启动 gui
+> 如果已经自定义配置 `alemon.config.yaml`但未补充pm2请参考
+
+```yaml
+pm2:
+  apps:
+    - name: 'gui'
+      script: 'node src/main.js'
+      env:
+        NODE_ENV: 'production'
+```
 
 ```sh
 # start
