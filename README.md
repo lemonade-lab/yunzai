@@ -14,14 +14,17 @@ Miao 崽 [Miao-Yunzai](https://github.com/yoimiya-kokomi/Miao-Yunzai)
 
 开发文档 [alemonjs.com](https://alemonjs.com)
 
+> 必备环境：Redis > v5
+
 ## 使用方法
 
-环境：Chrome/Chromium/Edge && Nodejs && Redis
+> 需要安装工具git
 
 - Miao 崽
 
 ```sh
-git clone --depth=1 https://github.com/yoimiya-kokomi/Miao-Yunzai.git && cd Miao-Yunzai
+git clone --depth=1 https://github.com/yoimiya-kokomi/Miao-Yunzai.git 
+cd Miao-Yunzai
 git clone --depth=1 https://github.com/yoimiya-kokomi/miao-plugin.git ./plugins/miao-plugin/
 ```
 
@@ -31,23 +34,45 @@ git clone --depth=1 https://github.com/yoimiya-kokomi/miao-plugin.git ./plugins/
 git clone --depth=1 https://github.com/lemonade-lab/yunzai.git ./alemonjs
 ```
 
-推荐使用 yarn
-
-```sh
-npm install  yarn@1.19.1 -g --registry=https://registry.npmmirror.com
-yarn install
-yarn add alemonjs @alemonjs/gui @alemonjs/process -D
-```
-
 ### 桌面启动
+
+编辑配置并补充以下内容
+
+> 如果安装有nodejs也可以先nodejs启动后，再考虑转为桌面
+
+- package.json
+
+```json
+{
+  "dependencies": {
+    "@alemonjs/db": "0.0.3",
+    "@alemonjs/gui": "0.3.5",
+    "@alemonjs/process": "^0.0.5",
+    "alemonjs": "2.0.0-rc.88",
+    "jsxp": "^1.1.2"
+  },
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ]
+}
+```
 
 - 访问官网下载桌面
 
 - 点击“以指定目录打开应用”，选择Miao-Yunzai后，等待重启
 
-
-
 ### Node启动
+
+> 需要安装环境nodejs
+
+推荐使用 yarn
+
+```sh
+npm install  yarn@1.19.1 -g --registry=https://registry.npmmirror.com
+yarn install
+yarn add alemonjs @alemonjs/gui @alemonjs/process jsxp -D
+```
 
 > 默认 --login gui 即登录沙盒环境
 
@@ -81,6 +106,12 @@ npx pm2 stop alemonjs/pm2.config.cjs
 npx pm2 delete alemonjs/pm2.config.cjs
 # kill
 npx pm2 kill
+```
+
+## 更新脚本
+
+```sh
+cd alemonjs && git pull
 ```
 
 ## 沙盒测试
