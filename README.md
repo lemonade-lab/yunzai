@@ -23,6 +23,11 @@ Miao 崽 [Miao-Yunzai](https://github.com/yoimiya-kokomi/Miao-Yunzai)
 ```sh
 git clone --depth=1 https://github.com/yoimiya-kokomi/Miao-Yunzai.git && cd Miao-Yunzai
 git clone --depth=1 https://github.com/yoimiya-kokomi/miao-plugin.git ./plugins/miao-plugin/
+```
+
+- AlemonJS 
+
+```sh
 git clone --depth=1 https://github.com/lemonade-lab/yunzai.git ./alemonjs
 ```
 
@@ -34,7 +39,15 @@ yarn install
 yarn add alemonjs @alemonjs/gui @alemonjs/process -D
 ```
 
-## 启动
+### 桌面启动
+
+- 访问官网下载桌面
+
+- 点击“以指定目录打开应用”，选择Miao-Yunzai后，等待重启
+
+
+
+### Node启动
 
 > 默认 --login gui 即登录沙盒环境
 
@@ -44,15 +57,7 @@ yarn add alemonjs @alemonjs/gui @alemonjs/process -D
 node src/main.js
 ```
 
-## 沙盒测试
-
-- 安装 vscode
-
-- 安装 gui 扩展
-
-[alemonjs gui](https://marketplace.visualstudio.com/items?itemName=lemonade-x.alemonjs-gui)
-
-## 后台运行
+### 进程托管
 
 > 运行后会生成 `alemon.config.yaml` 并启动 gui
 
@@ -78,14 +83,10 @@ npx pm2 delete alemonjs/pm2.config.cjs
 npx pm2 kill
 ```
 
-### 内网穿透
+## 沙盒测试
 
-[dashboard.ngrok.com](https://dashboard.ngrok.com)
+- 安装 vscode
 
-```sh
-ngrok http 17157 --host-header="localhost:17157"  --url=[你的免费地址]
-```
+- 安装 gui 扩展
 
-测试访问
-
-[你的免费地址]/webhook
+[alemonjs gui](https://marketplace.visualstudio.com/items?itemName=lemonade-x.alemonjs-gui)
