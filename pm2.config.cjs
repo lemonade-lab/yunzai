@@ -7,7 +7,7 @@ const configDir = path.join(process.cwd(), 'alemon.config.yaml')
 const initData = `pm2:
   apps:
     - name: 'gui'
-      script: 'node src/main.js'
+      script: 'node src/index.js'
       env:
         NODE_ENV: 'production'
 `

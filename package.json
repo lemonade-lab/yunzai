@@ -2,7 +2,7 @@
   "name": "a-yunzai",
   "version": "1.0.0",
   "description": "alemonjs yunzai",
-  "main": "main.js",
+  "main": "index.js",
   "private": true,
   "type": "module",
   "scripts": {

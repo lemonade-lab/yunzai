@@ -54,7 +54,7 @@ yarn add alemonjs @alemonjs/gui @alemonjs/process -D
 > 登录其他平台请了解 https://alemonjs.com/docs/environment
 
 ```sh
-node src/main.js
+node src/index.js
 ```
 
 ### 进程托管
@@ -67,7 +67,7 @@ node src/main.js
 pm2:
   apps:
     - name: 'gui'
-      script: 'node alemonjs/main.js --login gui'
+      script: 'node alemonjs/index.js --login gui'
       env:
         NODE_ENV: 'production'
 ```
