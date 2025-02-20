@@ -21,9 +21,9 @@ Miao 崽 [Miao-Yunzai](https://github.com/yoimiya-kokomi/Miao-Yunzai)
 - Miao 崽
 
 ```sh
-git clone --depth=1 https://github.com/yoimiya-kokomi/Miao-Yunzai.git
-cd Miao-Yunzai
+git clone --depth=1 https://github.com/yoimiya-kokomi/Miao-Yunzai.git && cd Miao-Yunzai
 git clone --depth=1 https://github.com/yoimiya-kokomi/miao-plugin.git ./plugins/miao-plugin/
+git clone --depth=1 https://github.com/lemonade-lab/yunzai.git ./alemonjs
 ```
 
 推荐使用 yarn
@@ -31,18 +31,7 @@ git clone --depth=1 https://github.com/yoimiya-kokomi/miao-plugin.git ./plugins/
 ```sh
 npm install  yarn@1.19.1 -g --registry=https://registry.npmmirror.com
 yarn install
-```
-
-- 脚本 A
-
-```sh
-git clone --depth=1 https://github.com/lemonade-lab/yunzai.git ./src
-```
-
-- alemonjs
-
-```sh
-yarn add alemonjs @alemonjs/gui -D
+yarn add alemonjs @alemonjs/gui @alemonjs/process -D
 ```
 
 ## 启动
@@ -73,18 +62,18 @@ node src/main.js
 pm2:
   apps:
     - name: 'gui'
-      script: 'node src/main.js'
+      script: 'node alemonjs/main.js --login gui'
       env:
         NODE_ENV: 'production'
 ```
 
 ```sh
 # start
-npx pm2 startOrRestart src/pm2.config.cjs
+npx pm2 startOrRestart alemonjs/pm2.config.cjs
 # stop
-npx pm2 stop src/pm2.config.cjs
+npx pm2 stop alemonjs/pm2.config.cjs
 # delete
-npx pm2 delete src/pm2.config.cjs
+npx pm2 delete alemonjs/pm2.config.cjs
 # kill
 npx pm2 kill
 ```
