@@ -20,6 +20,7 @@ const useMentionsUsers = async event => {
  */
 export const Yunzai = async event => {
   const Send = useSend(event)
+
   let text = event.MessageText
 
   let value = getConfigValue()
@@ -38,7 +39,7 @@ export const Yunzai = async event => {
 
   // 去掉gui 的 # 扩展 <> 标签
   if (event.Platform == 'gui') {
-    text = event.MessageText.replace(/(<|>)/g, '')
+    text = event.MessageText.replace(/<#(.*?)>/g, '#$1');
   } else if (event.Platform == 'qq') {
     // 如果启动的是icqq，使用传入原生消息
     const e = event.value
@@ -84,7 +85,6 @@ export const Yunzai = async event => {
           })
         }
       }
-      // console.log(content);
       if (Array.isArray(content)) {
         const image = content.filter(item => item['type'] == 'image')
         if (image.length > 0) {
@@ -135,6 +135,5 @@ export const Yunzai = async event => {
     e['sub_type'] = 'friend'
   }
   e['self_id'] = 'self_id'
-  // console.log('exxx', e)
   Loader.deal(e)
 }

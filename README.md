@@ -48,7 +48,7 @@ git clone --depth=1 https://github.com/lemonade-lab/yunzai.git ./alemonjs
     "@alemonjs/db": "0.0.3",
     "@alemonjs/gui": "0.3.5",
     "@alemonjs/process": "^0.0.5",
-    "alemonjs": "2.0.0-rc.88",
+    "alemonjs": "2.0.0-rc.93",
     "jsxp": "^1.1.2"
   },
   "private": true,
