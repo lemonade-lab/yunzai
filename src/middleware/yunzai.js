@@ -1,5 +1,5 @@
 import { useSend, Text, Image, getConfigValue, Mention } from 'alemonjs'
-import Loader from '../../lib/plugins/loader.js'
+import Loader from '../../../lib/plugins/loader.js'
 import { streamToBuffer } from './util.js'
 
 import { useMention } from 'alemonjs'
