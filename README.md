@@ -14,7 +14,6 @@ Miao 崽 [Miao-Yunzai](https://github.com/yoimiya-kokomi/Miao-Yunzai)
 
 开发文档 [alemonjs.com](https://alemonjs.com)
 
-> 必备环境：Redis > v5
 
 ## 使用方法
 
@@ -33,6 +32,37 @@ git clone --depth=1 https://github.com/yoimiya-kokomi/miao-plugin.git ./plugins/
 ```sh
 git clone --depth=1 https://github.com/lemonade-lab/yunzai.git ./alemonjs
 ```
+
+### 必要环境
+
+推荐使用docker，并加上aliyun的镜像地址
+
+```json
+{
+  "registry-mirrors": [
+    "https://registry.cn-hangzhou.aliyuncs.com"
+  ]
+}
+```
+
+- docker-compose.yml
+
+```yaml
+services:
+  redis:
+    image: redis:6.2-alpine
+    container_name: redis-container
+    ports:
+      - '6379:6379'
+```
+
+启动
+
+```sh
+docker-compose up -d
+```
+
+
 
 ### 桌面启动
 
