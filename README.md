@@ -35,7 +35,9 @@ git clone --depth=1 https://github.com/lemonade-lab/yunzai.git ./alemonjs
 
 ### 必要环境
 
-推荐使用docker，并加上aliyun的镜像地址
+推荐使用docker
+
+- Settings > Docker Engine
 
 ```json
 {
