@@ -77,15 +77,17 @@ docker-compose up -d
 ```json
 {
   "dependencies": {
-    "@alemonjs/db": "0.0.3",
-    "@alemonjs/gui": "0.3.5",
-    "@alemonjs/process": "^0.0.5",
-    "alemonjs": "2.0.0-rc.93",
+    "@alemonjs/gui": "^0.3.7",
+    "@alemonjs/qq-bot": "^0.0.13",
+    "@alemonjs/db": "0.0.4",
+    "@alemonjs/process": "^0.0.7",
+    "alemonjs": "^2.0.0-rc.94",
     "jsxp": "^1.1.2"
   },
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "plugins/*"
   ]
 }
 ```
@@ -103,7 +105,7 @@ docker-compose up -d
 ```sh
 npm install  yarn@1.19.1 -g --registry=https://registry.npmmirror.com
 yarn install
-yarn add alemonjs @alemonjs/gui @alemonjs/process jsxp -D
+yarn add alemonjs @alemonjs/gui @alemonjs/process @alemonjs/db @alemonjs/qq-bot jsxp -D
 ```
 
 > 默认 --login gui 即登录沙盒环境
