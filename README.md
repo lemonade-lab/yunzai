@@ -111,7 +111,7 @@ yarn add alemonjs @alemonjs/gui @alemonjs/process jsxp -D
 > 登录其他平台请了解 https://alemonjs.com/docs/environment
 
 ```sh
-node src/index.js
+node alemonjs/index.js
 ```
 
 ### 进程托管
