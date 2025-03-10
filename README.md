@@ -64,33 +64,11 @@ services:
 docker-compose up -d
 ```
 
-
-
 ### 桌面启动
 
 编辑配置并补充以下内容
 
 > 如果安装有nodejs也可以先nodejs启动后，再考虑转为桌面
-
-- package.json
-
-```json
-{
-  "dependencies": {
-    "@alemonjs/gui": "^0.3.7",
-    "@alemonjs/qq-bot": "^0.0.13",
-    "@alemonjs/db": "0.0.4",
-    "@alemonjs/process": "^0.0.7",
-    "alemonjs": "^2.0.0-rc.94",
-    "jsxp": "^1.1.2"
-  },
-  "private": true,
-  "workspaces": [
-    "packages/*",
-    "plugins/*"
-  ]
-}
-```
 
 - 访问官网下载桌面
 
@@ -106,6 +84,18 @@ docker-compose up -d
 npm install  yarn@1.19.1 -g --registry=https://registry.npmmirror.com
 yarn install
 yarn add alemonjs @alemonjs/gui @alemonjs/process @alemonjs/db @alemonjs/qq-bot jsxp -D
+```
+
+- package.json
+
+```json
+{
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "plugins/*"
+  ]
+}
 ```
 
 > 默认 --login gui 即登录沙盒环境
@@ -131,6 +121,8 @@ pm2:
         NODE_ENV: 'production'
 ```
 
+> 操作
+
 ```sh
 # start
 npx pm2 startOrRestart alemonjs/pm2.config.cjs
@@ -152,6 +144,6 @@ cd alemonjs && git pull
 
 - 安装 vscode
 
-- 安装 gui 扩展
+- 安装 alemonjs-gui 扩展
 
 [alemonjs gui](https://marketplace.visualstudio.com/items?itemName=lemonade-x.alemonjs-gui)
