@@ -17,7 +17,10 @@ export class Client {
   stamp = new Set() // 漫游表情缓存
   tiny_id = '' // 相当于频道中的QQ号
   dir = '' // 账号本地数据存储目录
-  logger = console // 简单的日志记录
+  logger = { // 简单的日志记录
+    ...console,
+    ...global.logger
+  }
 
   constructor(uin) {
     this.uin = uin
