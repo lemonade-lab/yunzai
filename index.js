@@ -8,4 +8,5 @@ const index = join(__dirname, 'src/index.js')
 const app = index
   .replace(/\\/g, '/')
   .replace(process.cwd().replace(/\\/g, '/'), '')
+  .replace(/^\//, '')
 start(app)
