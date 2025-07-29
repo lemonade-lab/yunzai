@@ -1,25 +1,26 @@
-import { useSend, Text, Image, getConfigValue, Mention } from 'alemonjs'
+import {
+  Text,
+  Image,
+  getConfigValue,
+  format,
+  Mention,
+  useMessage
+} from 'alemonjs'
 import Loader from '../../../lib/plugins/loader.js'
 import { streamToBuffer } from './util.js'
-
 import { useMention } from 'alemonjs'
-// import { segment } from 'icqq'
-// segment.at(123456789)
 
 const useMentionsUsers = async event => {
-  const Mentions = await useMention(event)
-  if (!Mentions || Mentions.length === 0) {
-    return // @ 提及为空
-  }
-  // 查找用户类型的 @ 提及，且不是 bot
-  return Mentions.filter(item => !item.IsBot)
+  const [mention] = useMention(event)
+  const users = await mention.find({ IsBot: false })
+  return users
 }
 
 /**
  * @param event
  */
 export const Yunzai = async event => {
-  const Send = useSend(event)
+  const [message] = useMessage(event)
 
   let text = event.MessageText
 
@@ -39,7 +40,7 @@ export const Yunzai = async event => {
 
   // 去掉gui 的 # 扩展 <> 标签
   if (event.Platform == 'gui') {
-    text = event.MessageText.replace(/<#(.*?)>/g, '#$1');
+    text = event.MessageText.replace(/<#(.*?)>/g, '#$1')
   } else if (event.Platform == 'qq') {
     // 如果启动的是icqq，使用传入原生消息
     const e = event.value
@@ -50,7 +51,7 @@ export const Yunzai = async event => {
 
   const users = await useMentionsUsers(event)
 
-  const message = [
+  const msgs = [
     {
       type: 'text',
       text: text
@@ -59,7 +60,7 @@ export const Yunzai = async event => {
 
   if (users && users.length > 0) {
     users.forEach(item =>
-      message.push({
+      msgs.push({
         type: 'at',
         id: item.UserId,
         qq: item.UserId
@@ -70,18 +71,18 @@ export const Yunzai = async event => {
   const e = {
     user_id: event.UserId,
     isMaster: isMaster,
-    message: message,
+    message: msgs,
     post_type: 'message',
     reply: (content, _) => {
       const isImage = content => {
         if (typeof content.file == 'string') {
           // base65 变为 buffer
-          Send(Image(Buffer.from(content.file, 'base64')))
+          message.send(format(Image(Buffer.from(content.file, 'base64'))))
         } else if (Buffer.isBuffer(content.file)) {
-          Send(Image(content.file))
+          message.send(format(Image(content.file)))
         } else {
           streamToBuffer(content.file).then(buffer => {
-            Send(Image(buffer))
+            message.send(format(Image(buffer)))
           })
         }
       }
@@ -111,13 +112,13 @@ export const Yunzai = async event => {
             }
             return Text('')
           })
-        Send(...datas)
+        message.send(format(...datas))
       } else if (typeof content === 'string') {
-        Send(Text(content))
+        message.send(format(Text(content)))
       } else if (content.type == 'image') {
         isImage(content)
       } else if (content.type == 'text') {
-        Send(Text(content.text))
+        message.send(format(Text(content.text)))
       }
       const val = {
         message_id: event.MessageId

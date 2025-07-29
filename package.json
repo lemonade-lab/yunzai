@@ -1,7 +1,7 @@
 {
-  "name": "a-yunzai",
+  "name": "@alemonjs/yunzai",
   "version": "1.0.0",
-  "description": "alemonjs yunzai",
+  "description": "alemonjs load yunzai plugin",
   "main": "index.js",
   "private": true,
   "type": "module",
@@ -12,11 +12,11 @@
   },
   "devDependencies": {
     "prettier": "^3.3.3",
-    "@alemonjs/gui": "^0.3.7",
-    "@alemonjs/qq-bot": "^0.0.13",
-    "@alemonjs/db": "0.0.4",
+    "@alemonjs/gui": "^2.1.0-alpha.5",
+    "@alemonjs/qq-bot": "^2.1.0-alpha.17",
+    "@alemonjs/db": "^0.0.11",
     "@alemonjs/process": "^0.0.7",
-    "alemonjs": "^2.0.0-rc.94",
+    "alemonjs": "^2.1.0-alpha.25",
     "husky": "^9.0.11"
   }
 }

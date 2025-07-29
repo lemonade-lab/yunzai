@@ -1,8 +1,6 @@
 import { Yunzai } from './yunzai.js'
-export default OnMiddleware(
-  (event, next) => {
-    Yunzai(event)
-    next()
-  },
-  ['message.create', 'private.message.create']
-)
+const selects = onSelects(['message.create', 'private.message.create'])
+export default onMiddleware(selects, (event, next) => {
+  Yunzai(event)
+  next()
+})

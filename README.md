@@ -14,7 +14,6 @@ Miao 崽 [Miao-Yunzai](https://github.com/yoimiya-kokomi/Miao-Yunzai)
 
 开发文档 [alemonjs.com](https://alemonjs.com)
 
-
 ## 使用方法
 
 > 需要安装工具git
@@ -22,12 +21,12 @@ Miao 崽 [Miao-Yunzai](https://github.com/yoimiya-kokomi/Miao-Yunzai)
 - Miao 崽
 
 ```sh
-git clone --depth=1 https://github.com/yoimiya-kokomi/Miao-Yunzai.git 
+git clone --depth=1 https://github.com/yoimiya-kokomi/Miao-Yunzai.git
 cd Miao-Yunzai
 git clone --depth=1 https://github.com/yoimiya-kokomi/miao-plugin.git ./plugins/miao-plugin/
 ```
 
-- AlemonJS 
+- AlemonJS
 
 ```sh
 git clone --depth=1 https://github.com/lemonade-lab/yunzai.git ./alemonjs
@@ -35,15 +34,13 @@ git clone --depth=1 https://github.com/lemonade-lab/yunzai.git ./alemonjs
 
 ### 必要环境
 
-推荐使用docker
+推荐使用 docker 以启动 redis
 
 - Settings > Docker Engine
 
 ```json
 {
-  "registry-mirrors": [
-    "https://registry.cn-hangzhou.aliyuncs.com"
-  ]
+  "registry-mirrors": ["https://registry.cn-hangzhou.aliyuncs.com"]
 }
 ```
 
@@ -64,16 +61,6 @@ services:
 docker-compose up -d
 ```
 
-### 桌面启动
-
-编辑配置并补充以下内容
-
-> 如果安装有nodejs也可以先nodejs启动后，再考虑转为桌面
-
-- 访问官网下载桌面
-
-- 点击“以指定目录打开应用”，选择Miao-Yunzai后，等待重启
-
 ### Node启动
 
 > 需要安装环境nodejs
@@ -91,10 +78,7 @@ yarn add alemonjs @alemonjs/gui @alemonjs/process @alemonjs/db @alemonjs/qq-bot 
 ```json
 {
   "private": true,
-  "workspaces": [
-    "packages/*",
-    "plugins/*"
-  ]
+  "workspaces": ["packages/*", "plugins/*"]
 }
 ```
 
