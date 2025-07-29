@@ -68,7 +68,7 @@ docker-compose up -d
 推荐使用 yarn
 
 ```sh
-npm install  yarn@1.19.1 -g --registry=https://registry.npmmirror.com
+npm install  yarn -g --registry=https://registry.npmmirror.com
 yarn install
 yarn add alemonjs @alemonjs/gui @alemonjs/process @alemonjs/db @alemonjs/qq-bot jsxp -D
 ```
@@ -82,13 +82,13 @@ yarn add alemonjs @alemonjs/gui @alemonjs/process @alemonjs/db @alemonjs/qq-bot 
 }
 ```
 
-> 默认 --login gui 即登录沙盒环境
-
 > 登录其他平台请了解 https://alemonjs.com/docs/environment
 
 ```sh
-node alemonjs/index.js
+node alemonjs/index.js --login gui
 ```
+
+> 登录其他平台请更改 login，如onebot则 `--login onebot`
 
 ### 进程托管
 
