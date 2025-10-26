@@ -13,10 +13,10 @@
   "devDependencies": {
     "prettier": "^3.3.3",
     "@alemonjs/gui": "^2.1.0-alpha.5",
-    "@alemonjs/qq-bot": "^2.1.0-alpha.17",
+    "@alemonjs/qq-bot": "^2.1.0-alpha.19",
     "@alemonjs/db": "^0.0.11",
     "@alemonjs/process": "^0.0.7",
-    "alemonjs": "^2.1.0-alpha.25",
+    "alemonjs": "^2.1.3",
     "husky": "^9.0.11"
   }
 }
