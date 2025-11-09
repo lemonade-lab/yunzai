@@ -6,15 +6,13 @@
 
 > 是不是碉堡了？
 
-当前仅处理公共消息和私信，其他类型的消息都将忽略。。。
+当前仅处理公共消息和私信，其他类型的消息暂未支持
 
 插件库 [Yunzai-Bot-plugins-index](https://github.com/yhArcadia/Yunzai-Bot-plugins-index)
 
 Miao 崽 [Miao-Yunzai](https://github.com/yoimiya-kokomi/Miao-Yunzai)
 
-开发文档 [alemonjs.com](https://alemonjs.com)
-
-## 使用方法
+## 安装
 
 > 需要安装工具git
 
@@ -32,102 +30,14 @@ git clone --depth=1 https://github.com/yoimiya-kokomi/miao-plugin.git ./plugins/
 git clone --depth=1 https://github.com/lemonade-lab/yunzai.git ./alemonjs
 ```
 
-### 必要环境
+## 使用
 
-推荐使用 docker 以启动 redis
+- alemongo
 
-- Settings > Docker Engine
+阿柠檬机器人服务版，替换work/resources/template 以更内部模板
 
-```json
-{
-  "registry-mirrors": ["https://registry.cn-hangzhou.aliyuncs.com"]
-}
-```
+> 更多内容请阅读 https://alemonjs.com
 
-- docker-compose.yml
+- alemondesk
 
-```yaml
-services:
-  redis:
-    image: redis:6.2-alpine
-    container_name: redis-container
-    ports:
-      - '6379:6379'
-```
-
-启动
-
-```sh
-docker-compose up -d
-```
-
-### Node启动
-
-> 需要安装环境nodejs
-
-推荐使用 yarn
-
-```sh
-npm install  yarn -g --registry=https://registry.npmmirror.com
-yarn install
-yarn add alemonjs @alemonjs/gui @alemonjs/process @alemonjs/db @alemonjs/qq-bot jsxp -D
-```
-
-- package.json
-
-```json
-{
-  "private": true,
-  "workspaces": ["packages/*", "plugins/*"]
-}
-```
-
-> 登录其他平台请了解 https://alemonjs.com/docs/environment
-
-```sh
-node alemonjs/index.js --login gui
-```
-
-> 登录其他平台请更改 login，如onebot则 `--login onebot`
-
-### 进程托管
-
-> 运行后会生成 `alemon.config.yaml` 并启动 gui
-
-> 如果已经自定义配置 `alemon.config.yaml`但未补充pm2请参考
-
-```yaml
-pm2:
-  apps:
-    - name: 'gui'
-      script: 'node alemonjs/index.js --login gui'
-      env:
-        NODE_ENV: 'production'
-```
-
-> 操作
-
-```sh
-# start
-npx pm2 startOrRestart alemonjs/pm2.config.cjs
-# stop
-npx pm2 stop alemonjs/pm2.config.cjs
-# delete
-npx pm2 delete alemonjs/pm2.config.cjs
-# kill
-npx pm2 kill
-```
-
-## 更新脚本
-
-```sh
-cd alemonjs && git pull
-```
-
-## 沙盒测试
-
-- 安装 vscode
-
-- 安装 alemonjs-gui 扩展
-
-[alemonjs gui](https://marketplace.visualstudio.com/items?itemName=lemonade-x.alemonjs-gui)
+阿柠檬机器人桌面版，
